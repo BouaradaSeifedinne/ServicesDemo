@@ -14,6 +14,7 @@ import { DocsComponent } from './home/container/docs/docs.component';
 import { SendmailComponent } from './home/container/sendmail/sendmail.component';
 import { AlertComponent } from './home/container/alert/alert.component';
 import { LoginComponent } from './home/container/login/login.component';
+import { RegisterComponent } from './home/container/register/register.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { LoginComponent } from './home/container/login/login.component';
     DocsComponent,
     SendmailComponent,
     AlertComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

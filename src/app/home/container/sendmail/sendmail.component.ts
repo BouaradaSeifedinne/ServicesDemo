@@ -1,15 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { SendmailService } from '../../../providers/sendmail.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sendmail',
   templateUrl: './sendmail.component.html',
-  styleUrls: ['./sendmail.component.css']
+  styleUrls: ['./sendmail.component.css'],
+  providers:[SendmailService]
 })
 export class SendmailComponent implements OnInit {
 
-  constructor() { }
+  email:string = "";
+  subject:string = "";
+  message:string = "";
+
+  constructor(private sendmail:SendmailService, private http:HttpClient) { }
 
   ngOnInit() {
+  }
+
+  Send () {
+    let data = {
+      to: this.email,
+      subject: this.subject,
+      html: this.message
+    };
+
+    alert(JSON.stringify(data));
+    /*this.sendmail.sendmail(data, "fr").subscribe(data => {
+      console.log(data);
+    }); */
   }
 
 }

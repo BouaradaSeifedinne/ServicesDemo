@@ -7,7 +7,7 @@ export class AppService {
   constructor(private route: Router) { }
 
   getUrlInfo() {
-    if(this.route.url == '/login'){
+    if(this.route.url == '/login' || this.route.url == '/register'){
       return false;
     }
     else
