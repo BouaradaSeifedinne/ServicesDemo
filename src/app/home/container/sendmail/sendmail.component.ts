@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SendmailService } from '../../../providers/sendmail.service';
 import { HttpClient } from '@angular/common/http';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sendmail',
@@ -14,7 +15,12 @@ export class SendmailComponent implements OnInit {
   sendSubject:string;
   sendMessage:string;
 
-  constructor(private sendmail:SendmailService, private http:HttpClient) { }
+  constructor(private sendmail:SendmailService, private http:HttpClient, private translate: TranslateService) { 
+    translate.addLangs(["en", "fr"]);
+    translate.setDefaultLang('en');
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+  }
 
   ngOnInit() {
   }
@@ -26,7 +32,7 @@ export class SendmailComponent implements OnInit {
       html: this.sendMessage
     };
 
-    this.sendmail.sendmail(data, "fr").subscribe(data => {
+    this.sendmail.sendmail(data, this.translate.currentLang).subscribe(data => {
       console.log(data);
     }); 
   }

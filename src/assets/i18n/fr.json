@@ -3,5 +3,8 @@
     "Password": "Mot de passe",
     "Sign in": "se connecter",
     "Username": "Nom d'utilisateur",
-    "Sign up": "Inscription"
+    "Sign up": "Inscription",
+    "Subject": "Sujet",
+    "Message": "Message",
+    "Sending": "Envoyer"
 }
