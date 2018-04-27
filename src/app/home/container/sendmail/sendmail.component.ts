@@ -10,26 +10,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SendmailComponent implements OnInit {
 
-  email:string = "";
-  subject:string = "";
-  message:string = "";
+  sendEmail:string;
+  sendSubject:string;
+  sendMessage:string;
 
   constructor(private sendmail:SendmailService, private http:HttpClient) { }
 
   ngOnInit() {
   }
 
-  Send () {
+  Send() {
     let data = {
-      to: this.email,
-      subject: this.subject,
-      html: this.message
+      to: this.sendEmail,
+      subject: this.sendSubject,
+      html: this.sendMessage
     };
 
-    alert(JSON.stringify(data));
-    /*this.sendmail.sendmail(data, "fr").subscribe(data => {
+    this.sendmail.sendmail(data, "fr").subscribe(data => {
       console.log(data);
-    }); */
+    }); 
   }
 
 }

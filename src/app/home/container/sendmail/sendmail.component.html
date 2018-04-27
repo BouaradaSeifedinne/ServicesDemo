@@ -5,17 +5,17 @@
       <form>
         <div class="form-group">
            <label for="exampleInputEmail1" class="bmd-label-floating">Email address</label>
-           <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="email">
+           <input type="email" class="form-control" name="sendEmail" [(ngModel)]="sendEmail">
         </div>
         <div class="form-group">
             <label for="subject" class="bmd-label-floating" >Subject</label>
-            <input type="text" class="form-control" id="subject" [(ngModel)]="subject">
+            <input type="text" class="form-control" name="sendSubject" [(ngModel)]="sendSubject">
         </div>
         <div class="form-group">
           <label for="exampleTextarea" class="bmd-label-floating">Example textarea</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="message"></textarea>
+          <textarea class="form-control" rows="3" name="sendMessage" [(ngModel)]="sendMessage"></textarea>
         </div>
-        <button class="btn btn-primary btn-raised float-right" (click)="send()">Sending</button>
+        <button class="btn btn-primary btn-raised float-right" (click)="Send()">Sending</button>
       </form>
     </div>
   </div>
