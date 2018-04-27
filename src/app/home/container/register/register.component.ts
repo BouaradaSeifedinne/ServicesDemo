@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   }
 
   signUp () {
+    
     let data = {
       username:this.username,
       email:this.email,

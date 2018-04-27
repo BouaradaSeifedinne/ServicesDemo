@@ -11,12 +11,11 @@ export class SendmailService {
   sendmail (data:object , lang:string ) {
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/x-www-form-urlencoded',
         'Accept-Language': lang
       })
     };
     
-    return this.http.post("http://56413105.ngrok.io/sendmail", data, this.httpOptions);
+    return this.http.post("http://127.0.0.1:3000/sendmail", data, this.httpOptions);
     
   }
 

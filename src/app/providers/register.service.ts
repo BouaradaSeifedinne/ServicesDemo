@@ -13,11 +13,10 @@ export class RegisterService {
     
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/x-www-form-urlencoded',
         'Accept-Language': lang
       })
     };
 
-    return this.http.post("http://56413105.ngrok.io/register", data, this.httpOptions );
+    return this.http.post("http://127.0.0.3:3000/register", data, this.httpOptions );
   }
 }

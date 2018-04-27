@@ -13,7 +13,6 @@ export class LoginService {
     
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/x-www-form-urlencoded',
         'Accept-Language': lang
       })
     };
@@ -21,7 +20,7 @@ export class LoginService {
     console.log("function login service ok");
     console.log(data);
     
-    return this.http.post("http://56413105.ngrok.io/login", data, this.httpOptions );
+    return this.http.post("http://127.0.0.1:3000/login", data, this.httpOptions );
   }
 
 }
