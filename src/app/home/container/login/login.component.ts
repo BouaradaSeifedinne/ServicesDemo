@@ -9,6 +9,7 @@ import {
   } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import{ LoginService } from '../../../providers/login.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,12 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private login:LoginService, private http:HttpClient) { }
+  constructor(private login:LoginService, private http:HttpClient, private translate: TranslateService) { 
+    translate.addLangs(["en", "fr"]);
+    translate.setDefaultLang('en');
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+  }
 
   ngOnInit() {
     /*this.loginForm = new FormGroup({
@@ -40,7 +46,7 @@ export class LoginComponent implements OnInit {
 
     console.log("function signIn ok");
     
-    this.login.login(data, "fr").subscribe( data => {
+    this.login.login(data, this.translate.currentLang).subscribe( data => {
       console.log(data);
     });
   }
