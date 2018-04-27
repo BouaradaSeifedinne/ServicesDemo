@@ -10,7 +10,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import{ LoginService } from '../../../providers/login.service';
 import {TranslateService} from '@ngx-translate/core';
-import { tokenKey } from '@angular/core/src/view';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   password: string;
   users : any = [];
 
-  constructor(private login:LoginService, private http:HttpClient, private translate: TranslateService) { 
+  constructor(private login:LoginService, private http:HttpClient, private translate: TranslateService, private route:Router) { 
     translate.addLangs(["en", "fr"]);
     translate.setDefaultLang('en');
     let browserLang = translate.getBrowserLang();
@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem("users", JSON.stringify(this.users));
         
+        this.route.navigate(['/']);
         
       }, 
       error => {

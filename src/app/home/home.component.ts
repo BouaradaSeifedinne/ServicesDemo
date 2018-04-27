@@ -11,13 +11,13 @@ export class HomeComponent implements OnInit {
 
   location: boolean;
 
-  constructor(private byomservice:AppService) { }
+  constructor(private globalservice:AppService) { }
 
   ngOnInit() {
   }
 
   ngDoCheck() {
-    this.location = this.byomservice.getUrlInfo();
+    this.location = this.globalservice.getUrlInfo();
   }
 
 }

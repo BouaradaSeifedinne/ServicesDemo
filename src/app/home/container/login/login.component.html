@@ -29,6 +29,7 @@
           <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password" placeholder="{{ 'Password' | translate}}" required> <!-- formControlName="password" -->
         </div>
         <button class="btn btn-primary btn-raised float-right" (click)="signIn()">{{'Sign in'| translate}}</button>
+        <a class="btn btn-primary btn-raised float-left" [routerLink]="['/register']">{{'Sign up'| translate}}</a>
       </form>
     </div>
   </div>
