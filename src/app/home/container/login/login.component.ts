@@ -10,6 +10,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import{ LoginService } from '../../../providers/login.service';
 import {TranslateService} from '@ngx-translate/core';
+import { tokenKey } from '@angular/core/src/view';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   //loginForm:FormGroup;
   email: string;
   password: string;
+  users : any = [];
 
   constructor(private login:LoginService, private http:HttpClient, private translate: TranslateService) { 
     translate.addLangs(["en", "fr"]);
@@ -44,10 +46,42 @@ export class LoginComponent implements OnInit {
       password:this.password
     }
 
-    console.log("function signIn ok");
-    
-    this.login.login(data, this.translate.currentLang).subscribe( data => {
-      console.log(data);
+    localStorage.clear();
+    this.users = [];
+
+    this.login.login(data, this.translate.currentLang).subscribe(
+      res => {
+
+        let array = Object.values(res);
+
+        let user = {
+          token: array[0],
+          isLogin: true
+        }
+        
+        this.users.push(user);
+
+        localStorage.setItem("users", JSON.stringify(this.users));
+        
+        
+      }, 
+      error => {
+        
+        if(error.error){
+          
+          alert(error.error.err);
+
+          let user = {
+            token: "null",
+            isLogin: false
+          }
+          
+          this.users.push(user);
+          localStorage.setItem("users", JSON.stringify(this.users));
+        }else{
+          alert("server error");
+        }
+      
     });
   }
 

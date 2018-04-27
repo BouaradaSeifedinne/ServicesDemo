@@ -3,7 +3,9 @@ import { RouterModule, Router } from '@angular/router';
 
 @Injectable()
 export class AppService {
-
+  
+  login:boolean = false;
+  
   constructor(private route: Router) { }
 
   getUrlInfo() {
@@ -16,4 +18,5 @@ export class AppService {
     }
   
   }
+
 }
