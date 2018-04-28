@@ -5,6 +5,8 @@ import { RouteModule } from './route/route.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -46,7 +48,9 @@ export function HttpLoaderFactory(httpClient: HttpClient){
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    ToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

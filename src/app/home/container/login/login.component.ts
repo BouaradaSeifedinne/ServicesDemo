@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {
   ReactiveFormsModule,
   FormsModule,
@@ -25,11 +26,12 @@ export class LoginComponent implements OnInit {
   password: string;
   users : any = [];
 
-  constructor(private login:LoginService, private http:HttpClient, private translate: TranslateService, private route:Router) { 
+  constructor(private login:LoginService, private http:HttpClient, private translate: TranslateService, private route:Router, public toastr: ToastsManager, vcr: ViewContainerRef) { 
     translate.addLangs(["en", "fr"]);
     translate.setDefaultLang('en');
     let browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
@@ -63,15 +65,19 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem("users", JSON.stringify(this.users));
         
+        this.toastr.success(array[1], 'Success!');
+
         this.route.navigate(['/']);
         
       }, 
       error => {
-        
+        console.log(error);
         if(error.error){
           
-          alert(error.error.err);
-
+          //alert(error.error.err);
+          
+          this.toastr.warning(error.error.err, 'Alert!');
+          
           let user = {
             token: "null",
             isLogin: false
@@ -80,7 +86,7 @@ export class LoginComponent implements OnInit {
           this.users.push(user);
           localStorage.setItem("users", JSON.stringify(this.users));
         }else{
-          alert("server error");
+          this.toastr.error('Server error', 'Oops!');
         }
       
     });
