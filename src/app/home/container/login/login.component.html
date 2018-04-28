@@ -1,13 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="form-group">
           <select class="form-control" #langSelect (change)="translate.use(langSelect.value)">
               <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
             </select>
-      </div>
-      <div class="alert alert-success" role="alert">
-        
       </div>
     </div>
   </div>
@@ -28,7 +25,8 @@
           <!-- <label for="password">Password</label> -->
           <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password" placeholder="{{ 'Password' | translate}}" required> <!-- formControlName="password" -->
         </div>
-        <button class="btn btn-primary btn-raised float-right" (click)="signIn()">{{'Sign in'| translate}}</button>
+        <button class="btn btn-primary btn-raised float-right" (click)="signIn()"><i class="fa fa-sign-in" aria-hidden="true"></i>
+           {{'Sign in'| translate}}</button>
         <a class="btn btn-primary btn-raised float-left" [routerLink]="['/register']">{{'Sign up'| translate}}</a>
       </form>
     </div>
