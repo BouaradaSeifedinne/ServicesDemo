@@ -39,8 +39,7 @@ export class RegisterComponent implements OnInit {
     this.register.register(data, this.translate.currentLang).subscribe(res => {
       let array = Object.values(res);
       this.toastr.success(array[0], 'Success!');
-      
-      
+    
     },
     error => {
       console.log(error);
