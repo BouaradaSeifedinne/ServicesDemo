@@ -8,6 +8,7 @@ import { SendmailComponent } from '../home/container/sendmail/sendmail.component
 import { AlertComponent } from '../home/container/alert/alert.component';
 import { LoginComponent } from '../home/container/login/login.component';
 import { RegisterComponent } from '../home/container/register/register.component';
+import { ProfileComponent } from '../home/container/profile/profile.component';
 
 const addRoutes: Routes = [
   { path: '', component: StartComponent },
@@ -15,7 +16,8 @@ const addRoutes: Routes = [
   { path: 'exemples/sendmail', component: SendmailComponent },
   { path: 'exemples/notification', component: AlertComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'exemples/profile', component: ProfileComponent}
 ];
 
 @NgModule({

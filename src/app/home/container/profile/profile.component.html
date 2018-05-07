@@ -1,0 +1,31 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <form novalidate>
+        <fieldset [disabled]="isDisabled === true ? 'disabled' : null">
+            <div class="form-group">
+                <label>Username :</label>
+                <input type="text" [ngClass]="isDisabled === true ? 'form-control-plaintext' : 'form-control'" name="username" [(ngModel)]="username" placeholder="username">
+              </div>
+              <div class="form-group">
+                <label>Email :</label>
+                <input type="email" [ngClass]="isDisabled === true ? 'form-control-plaintext' : 'form-control'" name="email" [(ngModel)]="email" placeholder="email">
+              </div>
+              <div class="form-group">
+                <label>CIN :</label>
+                <input type="text" [ngClass]="isDisabled === true ? 'form-control-plaintext' : 'form-control'" name="cin" [(ngModel)]="cin" placeholder="cin">
+              </div>
+              <div class="form-group">
+                <label>Phone :</label>
+                <input type="text" [ngClass]="isDisabled === true ? 'form-control-plaintext' : 'form-control'" name="phone" [(ngModel)]="phone" placeholder="phone">
+              </div>
+        </fieldset>
+        <div class="text-right">
+            <button class="btn btn-primary" (click)="disabled()">
+                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+            </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

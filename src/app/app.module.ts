@@ -18,6 +18,7 @@ import { SendmailComponent } from './home/container/sendmail/sendmail.component'
 import { AlertComponent } from './home/container/alert/alert.component';
 import { LoginComponent } from './home/container/login/login.component';
 import { RegisterComponent } from './home/container/register/register.component';
+import { ProfileComponent } from './home/container/profile/profile.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient){
   return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(httpClient: HttpClient){
     SendmailComponent,
     AlertComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
